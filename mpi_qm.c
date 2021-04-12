@@ -26,9 +26,10 @@ int main(int argc, char **argv) {
         FILE *file = fopen(filename, "r");
 
         //Get size
-        int size = 0;
-        sscanf(filename, "%*[^0-9]%d", &size);
-
+	char *sizeChar = argv[2];
+        int size = atoi(sizeChar);
+        //sscanf(filename, "%*[^0-9]%d", &size);
+	//printf("%d\n", size);
         //Allocate mem
         int *a = ints_new(size * size);
         int n = ints_to_array_from_file(file, a);
